@@ -23,7 +23,7 @@ let showResult = document.getElementById('showOtpt');
         case "email":
         ifNotEmpty(string);
         if(ifNotEmpty(string)){
-          const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+          const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
           const result = regex.test(string) ? `Valid` : `Not Valid`;
           showResult.innerText = result;
         }
@@ -31,7 +31,7 @@ let showResult = document.getElementById('showOtpt');
         case "phone":
           if(ifNotEmpty(string)){
             const regex = /^0\d{10}$/;
-            const result = regex.test(string) ? `Valid` : `Not Valid`;
+            const result = regex.test(string) && string.length==11  ? `Valid` : `Not Valid`;
             showResult.innerText = result;
           }
           break;
